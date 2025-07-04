@@ -19,8 +19,12 @@ public class TaskUpdateServlet extends HttpServlet {
         if (done == null) done = "0";
 
         TaskDao dao = new TaskDao();
-        dao.updateTaskDone(id, done);
+        try {
+			dao.updateTaskDone(id, done);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-        response.sendRedirect("task-list");
+        response.sendRedirect(request.getContextPath()+"/task-list");
     }
 }

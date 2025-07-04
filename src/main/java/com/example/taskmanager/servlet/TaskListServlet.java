@@ -3,7 +3,6 @@ package com.example.taskmanager.servlet;
 import java.io.IOException;
 import java.util.List;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,21 +14,28 @@ import com.example.taskmanager.dao.TaskDao;
 
 @WebServlet("/task-list")
 public class TaskListServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String filter = request.getParameter("filter");
-        if (filter == null) filter = "all";
+    private static final long serialVersionUID = 1L;
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String filter = request.getParameter("filter");
         String sort = request.getParameter("sort");
-        if (sort == null) sort = "asc";
+
+        if (filter == null) filter = "all";     // デフォルト
+        if (sort == null) sort = "asc";         // デフォルト
 
         TaskDao dao = new TaskDao();
-        List<Task> tasks = dao.getTasks(filter, sort);
+        List<Task> taskList = null;
+		try {
+			taskList = dao.findByFilterAndSort(filter, sort);
+		} catch (Exception e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		request.setAttribute("tasks", taskList);
+		request.setAttribute("filter", filter);
+		request.setAttribute("sort", sort);
 
-        request.setAttribute("tasks", tasks);
-        request.setAttribute("filter", filter);
-        request.setAttribute("sort", sort);
-
-        RequestDispatcher rd = request.getRequestDispatcher("/jsp/task_list.jsp");
-        rd.forward(request, response);
+        request.getRequestDispatcher("/jsp/task_list.jsp").forward(request, response);
     }
 }

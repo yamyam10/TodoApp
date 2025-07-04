@@ -17,7 +17,11 @@ public class TaskAddServlet extends HttpServlet {
         String deadline = request.getParameter("deadline");
 
         TaskDao dao = new TaskDao();
-        dao.insertTask(title, deadline);
+        try {
+			dao.insertTask(title, deadline);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
         response.sendRedirect(request.getContextPath()+"/task-list");
     }
