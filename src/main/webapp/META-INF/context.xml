@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Context 
+    PUBLIC "-//Apache Software Foundation//DTD Context 1.0//EN"
+    "http://tomcat.apache.org/dtd/context_1_0.dtd">
+
+
+<Context reloadable="true">
+	<!-- nameは一意になるように自分で考えてつける -->
+	<!--name="jdbc/school" がデータベースへの接続を識別する名前 -->
+	<Resource name="jdbc/kikiyasuq" auth="Container"
+		type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
+
+		url="jdbc:oracle:thin:@localhost:1522/freepdb1" username="kikiyasuq_user"
+		password="systemsss" maxTotal="20" maxIdle="10" maxWaitMillis="-1" />
+
+<!--	<Resource name="jdbc/twitter" auth="Container"-->
+<!--		type="javax.sql.DataSource" -->
+<!--		driverClassName="oracle.jdbc.OracleDriver"-->
+<!--		url="jdbc:oracle:thin:@database-2.c5q0kuq2irpc.ap-northeast-1.rds.amazonaws.com:1521:ORCL?sessionTimeZone=Asia/Tokyo"-->
+<!--		username="admin" -->
+<!--		password="cCY6QFLV6AlSzP0d95hC" -->
+<!--		maxTotal="20"-->
+<!--		maxIdle="10" -->
+<!--		maxWaitMillis="-1" />-->
+
+</Context>
