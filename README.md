@@ -13,7 +13,7 @@ Java（JSP + Servlet）および Oracle Database を使用したタスク管理�
 
 ## 技術構成
 
-- Java 21+
+- Java 21
 - JSP / JSTL
 - Servlet
 - Oracle Database
