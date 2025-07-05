@@ -14,15 +14,7 @@
 <head>
 <meta charset="UTF-8">
 <title>タスク一覧</title>
-<style>
-    .overdue {
-        color: red;
-    }
-    .done {
-        text-decoration: line-through;
-        color: gray;
-    }
-</style>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/task_list.css" />
 </head>
 <body>
 

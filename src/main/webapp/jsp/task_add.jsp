@@ -13,6 +13,6 @@
     <input type="submit" value="追加">
 </form>
 
-<a href="task-list">← 戻る</a>
+<a href="${pageContext.request.contextPath}/task-list">← 戻る</a>
 </body>
 </html>
