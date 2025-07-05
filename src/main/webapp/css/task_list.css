@@ -2,27 +2,44 @@
 
 /* 全体レイアウト */
 body {
-    font-family: sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f8;
     padding: 40px;
-}
-
-h1 {
-    margin-bottom: 20px;
-    font-size: 28px;
     color: #333;
 }
 
+h1 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* タスク追加ボタン */
+.btn-add {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn-add:hover {
+    background-color: #218838;
+}
+
+/* フォーム部 */
 form {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 select, input[type="submit"] {
-    padding: 5px 10px;
-    margin-right: 8px;
+    padding: 6px 10px;
     border-radius: 4px;
     border: 1px solid #ccc;
+    margin-right: 8px;
 }
 
 input[type="submit"] {
@@ -36,15 +53,16 @@ input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+/* タスク項目 */
 .task-item {
     background-color: #fff;
     border: 1px solid #ddd;
-    padding: 12px;
+    padding: 12px 16px;
     border-radius: 6px;
     margin-bottom: 8px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .task-left {
@@ -53,7 +71,7 @@ input[type="submit"]:hover {
 }
 
 .task-left input[type="checkbox"] {
-    margin-right: 10px;
+    margin-right: 12px;
     transform: scale(1.2);
 }
 
@@ -61,13 +79,33 @@ input[type="submit"]:hover {
     font-size: 16px;
 }
 
-/* 打消し線 */
 .done .task-title {
     text-decoration: line-through;
     color: gray;
 }
 
-/* 締切オーバー */
 .overdue .task-title {
     color: red;
+    font-weight: bold;
+}
+
+.task-deadline {
+    font-size: 14px;
+    color: #666;
+}
+
+.no-task {
+    color: #666;
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: #888;
 }

@@ -6,20 +6,19 @@
 <%
     String today = LocalDate.now().format(DateTimeFormatter.ISO_DATE);
     request.setAttribute("today", today);
-    
-    %>
+%>
 
 <html>
 <head>
-<meta charset="UTF-8">
-<title>タスク一覧</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/task_list.css">
+    <meta charset="UTF-8">
+    <title>タスク一覧</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/task_list.css" />
 </head>
 <body>
 
 <h1>タスク一覧</h1>
 
-<a href="${pageContext.request.contextPath}/jsp/task_add.jsp">＋タスク追加</a>
+<a href="${pageContext.request.contextPath}/jsp/task_add.jsp" class="btn-add">＋ タスク追加</a>
 
 <form method="get" action="${pageContext.request.contextPath}/task-list">
     表示：
@@ -50,13 +49,18 @@
                 <c:set var="hasTodayTask" value="true" />
             </c:if>
 
-            <form action="${pageContext.request.contextPath}/task-update" method="post" class="task-item 
-                ${task.done == '1' ? 'done' : ''} 
-                ${task.deadline lt today && task.done != '1' ? 'overdue' : ''}">
+            <form action="${pageContext.request.contextPath}/task-update" method="post"
+                  class="task-item ${task.done == '1' ? 'done' : ''} ${task.deadline lt today && task.done != '1' ? 'overdue' : ''}">
                 <div class="task-left">
                     <input type="hidden" name="id" value="${task.id}" />
-                    <input type="checkbox" name="done" value="1" ${task.done == '1' ? 'checked' : ''} onchange="this.form.submit()" />
-                    <div class="task-title">${task.title}</div>
+                    <input type="checkbox" name="done" value="1"
+                           ${task.done == '1' ? 'checked' : ''} onchange="this.form.submit()" />
+                    <div class="task-title">
+                        <c:if test="${task.deadline == today}">
+                            <span style="color: orange; font-weight: bold;">【本日】</span>
+                        </c:if>
+                        ${task.title}
+                    </div>
                 </div>
                 <div class="task-deadline">締切: ${task.deadline}</div>
             </form>
@@ -69,9 +73,13 @@
         </script>
     </c:when>
     <c:otherwise>
-        <p>タスクがありません。</p>
+        <p class="no-task">現在、登録されているタスクはありません。</p>
     </c:otherwise>
 </c:choose>
+
+<footer>
+    &copy; 2025 yamyam10 TaskApp
+</footer>
 
 </body>
 </html>
