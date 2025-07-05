@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>タスク追加</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/task_add.css">
+    <meta charset="UTF-8">
+    <title>タスク追加</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/task_add.css">
 </head>
 <body>
 
@@ -15,8 +15,8 @@
         <label for="title">タイトル</label>
         <input type="text" id="title" name="title" required>
 
-        <label for="deadline">締切日</label>
-        <input type="date" id="deadline" name="deadline" required>
+        <label for="deadline">締切日時</label>
+        <input type="datetime-local" id="deadline" name="deadline" required>
 
         <input type="submit" value="追加" class="btn-submit">
     </form>

@@ -49,7 +49,7 @@ public class TaskDao extends DAO {
 
     // タスクの追加
     public void insertTask(String title, String deadline) throws Exception {
-        String sql = "INSERT INTO tasks (id, title, deadline, done, created_at) VALUES (task_seq.NEXTVAL, ?, TO_DATE(?, 'YYYY-MM-DD'), 0, SYSDATE)";
+        String sql = "INSERT INTO tasks (id, title, deadline, done, created_at) VALUES (task_seq.NEXTVAL, ?, TO_TIMESTAMP(?, 'YYYY-MM-DD\"T\"HH24:MI'), 0, SYSDATE)";
         Connection con = getConnection();
         try (
              PreparedStatement ps = con.prepareStatement(sql)) {
