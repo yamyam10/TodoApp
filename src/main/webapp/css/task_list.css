@@ -1,10 +1,73 @@
 @charset "UTF-8";
 
-.overdue {
-	color: red;
+/* 全体レイアウト */
+body {
+    font-family: sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 40px;
 }
 
-.done {
-	text-decoration: line-through;
-	color: gray;
+h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+}
+
+form {
+    margin-bottom: 10px;
+}
+
+select, input[type="submit"] {
+    padding: 5px 10px;
+    margin-right: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.task-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-left {
+    display: flex;
+    align-items: center;
+}
+
+.task-left input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.task-title {
+    font-size: 16px;
+}
+
+/* 打消し線 */
+.done .task-title {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* 締切オーバー */
+.overdue .task-title {
+    color: red;
 }
